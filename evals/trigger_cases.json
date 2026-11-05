@@ -1,0 +1,51 @@
+{
+  "positive_concepts": {
+    "task": [
+      "空间锁",
+      "摄影机轴线锁",
+      "换机位"
+    ],
+    "input": [
+      "场景",
+      "全景",
+      "房间"
+    ],
+    "output": [
+      "提示词",
+      "两段",
+      "陈设"
+    ]
+  },
+  "description_required_concepts": [
+    "task",
+    "input",
+    "output"
+  ],
+  "recommended_threshold": 0.34,
+  "negative_patterns": [
+    "只做普通抠图",
+    "写一首诗",
+    "给视频加字幕"
+  ],
+  "should_trigger": [
+    {
+      "text": "请使用 scene-spatial-lock，查看我提供的全景图与正反面设定，输出空间锁和摄影机轴线锁两段正文。未知区域不要补造。"
+    },
+    {
+      "text": "空间锁：给房间写两段提示词"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "写一首诗"
+    },
+    {
+      "text": "给视频加字幕"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "只做普通抠图"
+    }
+  ]
+}
