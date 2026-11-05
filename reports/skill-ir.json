@@ -1,0 +1,80 @@
+{
+  "schema_version": "2.0.0-qiaomu-lite",
+  "generated_at": "2026-11-05",
+  "package": {
+    "name": "scene-spatial-lock",
+    "version": "0.1.1",
+    "owner": "Lonc2100",
+    "maturity_tier": "scaffold",
+    "lifecycle_stage": null,
+    "upstream_inspiration": null,
+    "upstream_sync": {}
+  },
+  "intent": {
+    "description": "将作者场景描述、全景环境图和明确设定组织为“空间锁＋摄影机轴线锁”两段可复制提示词，保持固定陈设、相邻关系、路线、光源方向及跨切镜状态。用于“空间锁提示词”“换机位保持同一房间”“按我的空间锁范例做Skill”；不是environment-look-lock的环境美术合同，不自动生成、付费或保证视频一致性。",
+    "job_to_be_done": "将作者场景描述、全景环境图和明确设定组织为“空间锁＋摄影机轴线锁”两段可复制提示词，保持固定陈设、相邻关系、路线、光源方向及跨切镜状态。用于“空间锁提示词”“换机位保持同一房间”“按我的空间锁范例做Skill”；不是environment-look-lock的环境美术合同，不自动生成、付费或保证视频一致性。",
+    "target_users": [
+      "AI video creators using local agent skills"
+    ],
+    "inputs": [],
+    "outputs": [],
+    "exclusions": [],
+    "qiaomu_defaults": {}
+  },
+  "triggers": {
+    "should_trigger": [
+      "请使用 scene-spatial-lock，查看我提供的全景图与正反面设定，输出空间锁和摄影机轴线锁两段正文。未知区域不要补造。",
+      "空间锁：给房间写两段提示词"
+    ],
+    "should_not_trigger": [
+      "写一首诗",
+      "给视频加字幕"
+    ],
+    "near_neighbor": [
+      "只做普通抠图"
+    ]
+  },
+  "workflow": {
+    "router_rules": [],
+    "compact_workflow": [],
+    "gate_ladder": [],
+    "output_contract": []
+  },
+  "resources": {
+    "references": [
+      "references\\author-pattern.md"
+    ],
+    "scripts": [
+      "scripts\\compile_lock.py"
+    ],
+    "evals": [
+      "evals\\test_compile.py",
+      "evals\\trigger_cases.json"
+    ],
+    "reports": [
+      "reports\\skill-ir.json",
+      "reports\\trigger-eval.json"
+    ]
+  },
+  "portability": {
+    "canonical_format": null,
+    "adapter_targets": [
+      "openai",
+      "claude",
+      "generic",
+      "agent-skills-compatible"
+    ],
+    "activation": {},
+    "execution": {},
+    "trust": {},
+    "permissions": {},
+    "degradation": {}
+  },
+  "gates": {},
+  "evidence_boundary": {
+    "generated_reports_are_evidence": true,
+    "planned_work_is_evidence": false,
+    "missing_external_or_human_evidence_label": "missing evidence",
+    "public_claim_policy": "claim only what local validation, install proof, human review, or provider-backed evidence actually supports"
+  }
+}
